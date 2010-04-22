@@ -52,7 +52,10 @@ class Bootstrap{
 		GuiraUtils::add2IncludePath($modelsPath);
 		
 		$viewsPath = $appPath . DIRECTORY_SEPARATOR . "views";
-		GuiraUtils::add2IncludePath(viewsPath);
+		GuiraUtils::add2IncludePath($viewsPath);
+		
+		$libsPath = $appPath . DIRECTORY_SEPARATOR . "libs";
+		GuiraUtils::add2IncludePath($libsPath);
 	}
 	
 	public static function run($url){
@@ -65,8 +68,9 @@ class Bootstrap{
 			self::configurePaths(); #configure paths
 			$controller[0] = strtoupper($controller[0]);
 			$controller = $controller . "Controller";
+			$action = $action . "Action";
 			$controllerObj = new $controller;
-			var_dump($controllerObj);
+			$controllerObj->$action($_REQUEST);
 		}
 	}
 }
