@@ -1,1 +1,15 @@
 Example of a Twitter Client
+
+Application Basic Strucut
+application/controllers -> Controllers of application
+application/views -> Views of application
+application/models -> Models of application
+
+
+The controllers are invoked by url and request goes to public/index.php that starts
+the application through Bootstrap, then the Bootstrap discover controller and action on URLs.
+
+For example: .../index.php/<controller_name>/<action_name>/
+Tha will call a method <action_name>Action on <controller_name>Controller 
+
+If doesn't exist the method will render the 404.php on views folder.
