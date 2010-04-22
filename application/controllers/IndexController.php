@@ -1,12 +1,13 @@
 <?php
 
-class IndexController {
+class IndexController extends  Controller{
 	
-//	public function __call($name, $arguments){
-//		$reflection = new ReflectionClass();
-//	} 
+	public function __construct(){
+		parent::__construct();
+	}
 	
-	public function testeAction(){
-		
+	public function testeAction($request){
+		$this->view->title = "Teste";
+		$this->view->render();
 	}
 }

@@ -15,7 +15,7 @@ class TwitterAPI {
     public function tweet($msg) {
         $url = self::TWITTER_URL . 'statuses/update.json';
         $params = array('status', $msg);
-        return $this->request($url, $params);
+        return $this->request($url, $params, 'POST');
     }
 
     public function timeline() {
@@ -23,19 +23,28 @@ class TwitterAPI {
         return $this->request($url);
     }
 
-    public function search($query) {}
+    public function home_timeline() {
+        $url = self::TWITTER_URL . 'statuses/home_timeline.json';
+        return $this->request($url);
+    }
 
-    private function request($url, $params = array()) {
+    public function search($query, $page = 1) {
+        $url = 'http://search.twitter.com/search.json';
+        $url .= '?q=' . urlencode($query);
+        $url .= $page > 1 ? '&page=' . $page : false;
+        return $this->request($url);
+    }
+
+    private function request($url, $params = array(), $method = 'GET') {
         $context = stream_context_create(array(
             'http' => array(
-                'method'  => 'POST',
+                'method'  => $method,
                 'header'  => $this->header(),
                 'content' => http_build_query($params),
-                'timeout' => 5,
             ),
         ));
         $ret = file_get_contents($url, false, $context);
-        return json_decode($ret);
+        return json_decode($ret, true);
     }
 
     private function header() {
