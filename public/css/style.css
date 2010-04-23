@@ -1,0 +1,62 @@
+#main
+{
+		width:777px;
+		margin:auto;
+		background-color:#fff;
+		padding:20px;
+}
+
+#nav
+{
+		padding:10px;
+}
+
+#submit
+{
+		padding:10px;
+}
+
+.avatar
+{
+		padding:10px;
+		float:left;
+}
+
+.tweet-data 
+{
+		padding:10px;
+}
+
+.clear
+{
+		height:10px;
+}
+
+a:link
+{
+		text-decoration:none;
+		font-weight:bold;
+		color:#49b6ef;
+}
+a:hover
+{
+		text-decoration:none;
+		text-decoration:underline;
+		font-weight:bold;
+		color:#49b6ef;
+}
+a:visited
+{
+		text-decoration:none;
+		font-weight:bold;
+		color:#49b6ef;
+}
+a:active
+{
+		text-decoration:none;
+		text-decoration:underline;
+		font-weight:bold;
+		color:#49b6ef;
+}
+
+
